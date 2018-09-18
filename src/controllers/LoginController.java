@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,17 +18,11 @@ import models.MockDao;
 public class LoginController extends HttpServlet{
 	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String id = req.getParameter("id");
-		String pass =req.getParameter("pass");
-		Map<String, String> m = new HashMap<>();
-		m.put("id", id);
-		m.put("pass",pass);
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/login.jsp");
+		
+		rd.forward(req, resp);
 	
-		MockDao mdao = new MockDao();
-		int re = mdao.getlogin(m);
-		
-		
 	}
 	
 	

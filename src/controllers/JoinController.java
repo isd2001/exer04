@@ -2,7 +2,7 @@ package controllers;
 
 import javax.servlet.annotation.WebServlet;
 
-@WebServlet("join.do")
+@WebServlet("/join.do")
 public class JoinController {
 
 }
